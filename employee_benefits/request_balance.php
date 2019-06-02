@@ -25,6 +25,8 @@
 		$f_date = $row2["emp_startDate"];
 		echo $f_date."<br><br>";
 
+		$total_tenure_pts = 0;
+
 
 
 
@@ -46,13 +48,18 @@
 
 
 
-			$pts_db = calcDate($srtDate, $endDate, $points);	
+			$pts_db = calcDate($srtDate, $endDate, $points);
+			$total_tenure_pts = $total_tenure_pts + addTenure($srtDate, $endDate);
+
+
 			
 			//echo $srtDate."....";			
 		}
 
+		$store_pts = $total_tenure_pts + $pts_db;
 
-		echo "Your total number of points is ".$pts_db;
+
+		echo "Your total number of points is ".$store_pts;
 		$sql5 = "UPDATE tbl_employees SET emp_points = '$pts_db' WHERE emp_id = '$id'";
 		
 		$query4 = mysqli_query($link, $sql5);
