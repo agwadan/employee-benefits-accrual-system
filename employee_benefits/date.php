@@ -1,9 +1,7 @@
 <?php
 
-function calcDate($date1, $date2, $pts){
+function calcDate($date1, $date2, $pts, $mul){
 
-	
-	//$endDate = $row3['emp_startDate'];
 
 	$ts1 = strtotime($date1);
 	$ts2 = strtotime($date2);
@@ -15,36 +13,16 @@ function calcDate($date1, $date2, $pts){
 	$month2 = date('m', $ts2);
 
 	$year_diff = $year2 - $year1;
-<<<<<<< HEAD
+
 	$diff = (($year_diff) * 12) + ($month2 - $month1);
 	$frst_pts = $diff * $pts;
-	
-	if ($year_diff <= 2) {
-		$ttl_pts = $frst_pts * 2.00;
-	} 
-	elseif ($year_diff <= 4) {
-		$ttl_pts = $frst_pts * 2.25;
-	}
-	elseif ($year_diff > 4) {
-		$ttl_pts = $frst_pts * 2.50;
-	}
-	
-=======
-	$diff = ($year_diff * 12) + ($month2 - $month1);
-	
-	$ttl_pts = $diff * $pts;
->>>>>>> 09f5affc492a748d2227fc5f6f21af258598df21
-
+	$ttl_pts = $frst_pts *$mul;
 	return $ttl_pts;
 
-
-
-<<<<<<< HEAD
-
-=======
 }
 
-function addTenure($date1, $date2){
+function calcTenure($date1, $date2)
+{
 	$ts1 = strtotime($date1);
 	$ts2 = strtotime($date2);
 
@@ -53,10 +31,20 @@ function addTenure($date1, $date2){
 
 	$year_diff = $year2 - $year1;
 
-	return $year_diff;
->>>>>>> 09f5affc492a748d2227fc5f6f21af258598df21
+	if ($year_diff <= 2) {
+		$mult = 2.00;
+	} 
+	elseif ($year_diff <= 4) {
+		$mult = 2.25;
+	}
+	elseif ($year_diff > 4) {
+		$mult = 2.50;
+	}
+
+	return $mult;
 
 }
+
 	
 ?>
 
