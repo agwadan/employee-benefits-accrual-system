@@ -1,6 +1,6 @@
 <?php
 
-function calcDate($date1, $date2){
+function calcDate($date1, $date2, $pts){
 
 	
 	//$endDate = $row3['emp_startDate'];
@@ -14,10 +14,26 @@ function calcDate($date1, $date2){
 	$month1 = date('m', $ts1);
 	$month2 = date('m', $ts2);
 
-	$diff = (($year2 - $year1) * 12) + ($month2 - $month1);
-	echo $diff;
+	$year_diff = $year2 - $year1;
+	$diff = (($year_diff) * 12) + ($month2 - $month1);
+	$frst_pts = $diff * $pts;
+	
+	if ($year_diff <= 2) {
+		$ttl_pts = $frst_pts * 2.00;
+	} 
+	elseif ($year_diff <= 4) {
+		$ttl_pts = $frst_pts * 2.25;
+	}
+	elseif ($year_diff > 4) {
+		$ttl_pts = $frst_pts * 2.50;
+	}
+	
 
-	return $diff;
+	return $ttl_pts;
+
+
+
+
 
 }
 	
