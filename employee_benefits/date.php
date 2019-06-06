@@ -2,8 +2,6 @@
 
 function calcDate($date1, $date2, $pts){
 
-	
-	//$endDate = $row3['emp_startDate'];
 
 	$ts1 = strtotime($date1);
 	$ts2 = strtotime($date2);
@@ -30,17 +28,11 @@ function calcDate($date1, $date2, $pts){
 	}
 	
 
-	$diff = ($year_diff * 12) + ($month2 - $month1);
-	
-	$ttl_pts = $diff * $pts;
-
 
 	return $ttl_pts;
 
 }
 
-
-}
 	
 ?>
 
