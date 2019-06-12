@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 06, 2019 at 02:34 PM
+-- Generation Time: Jun 12, 2019 at 11:48 AM
 -- Server version: 10.1.25-MariaDB
 -- PHP Version: 7.1.7
 
@@ -30,6 +30,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `tbl_employees` (
   `emp_id` int(1) NOT NULL COMMENT 'Employee id',
+  `emp_password` varchar(100) NOT NULL COMMENT 'employee''s password',
   `emp_points` float NOT NULL DEFAULT '0' COMMENT 'Number of points',
   `emp_points_used` float NOT NULL DEFAULT '0' COMMENT 'Total number of points used'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -38,12 +39,12 @@ CREATE TABLE `tbl_employees` (
 -- Dumping data for table `tbl_employees`
 --
 
-INSERT INTO `tbl_employees` (`emp_id`, `emp_points`, `emp_points_used`) VALUES
-(1, 960, 0),
-(2, 787.5, 0),
-(3, 0, 0),
-(4, 960, 0),
-(5, 0, 0);
+INSERT INTO `tbl_employees` (`emp_id`, `emp_password`, `emp_points`, `emp_points_used`) VALUES
+(1, 'f97c5d29941bfb1b2fdab0874906ab82', 1430, 0),
+(2, 'b8a9f715dbb64fd5c56e7783c6820a61', 787.5, 0),
+(3, '35d6d33467aae9a2e3dccb4b6b027878', 0, 0),
+(4, '8cbad96aced40b3838dd9f07f6ef5772', 960, 0),
+(5, '30056e1cab7a61d256fc8edd970d14f5', 0, 0);
 
 -- --------------------------------------------------------
 
