@@ -6,6 +6,8 @@
 
 - Import the sql file into a local database on your computer.
 
-- Enter the url ```http://localhost/employee_benefits/request_balance.php```
+- Enter the url ```http://localhost/employee_benefits/```
+
+- Enter an employee Id from 1 to 5 and the pasword for the employee is the id in words. For Example the password for employee 1 is "one".
 
 

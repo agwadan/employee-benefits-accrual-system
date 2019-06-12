@@ -1,7 +1,7 @@
 <?php
 
 	require 'config.php';
-	include 'date.php';
+	include 'functions.php';
 
 	$total_tenure_pts = 0;
 
@@ -39,9 +39,9 @@
 					$points = 25;
 				}
 
-				$ten_multiplier = calcTenure($init_start_date, $endDate);
+				$ten_multiplier = calcMultiplier($init_start_date, $endDate);
 
-				echo $ten_multiplier;
+				echo $ten_multiplier."<br><br>";
 
 				$pts_db = calcDate($srtDate, $endDate, $points, $ten_multiplier);
 				$srtDate = $endDate;
@@ -72,14 +72,15 @@
 					$points = 25;
 				}
 			echo $srtDate."<br><br>";
-			$ten_multiplier = calcTenure($init_start_date, $endDate);
+			$ten_multiplier = calcMultiplier($init_start_date, $endDate);
 			$pts_update = calcDate($srtDate, $today, $points, $ten_multiplier);
 			echo $pts_update."<br><br>";
 		}
 
 		//Updating the database value with the new number of points.
-		echo "Your total points are: ".$pts_db + $pts_update;
-		$sql = "UPDATE tbl_employees SET emp_points = '$pts_db' WHERE emp_id = '$id'";
+		$emp_points = ($pts_db + $pts_update);
+		echo "Your total points are: ".$emp_points;
+		$sql = "UPDATE tbl_employees SET emp_points = '$emp_points' WHERE emp_id = '$id'";
 		$query4 = mysqli_query($link, $sql);
 
 
@@ -89,6 +90,7 @@
 
 ?>
 
+<!--HTML script for the web page-->
 <!DOCTYPE html>
 <html>
 <head>
